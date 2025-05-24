@@ -1,4 +1,16 @@
 import * as cheerio from "cheerio";
+import normalizeUrl from 'normalize-url';
+
+const normalizeUrls = (links) => {
+    return links.map(link => {
+        try {
+            return normalizeUrl(link, { stripWWW: false });
+        } catch (error) {
+            console.error(`Error normalizing URL: ${link}`, error);
+            return link; // Return the original link if normalization fails
+        }
+    });
+};
 
 const extractHrefs = (htmlString) => {
     if (!htmlString || typeof htmlString !== "string") {
@@ -6,16 +18,16 @@ const extractHrefs = (htmlString) => {
     }
 
     const $ = cheerio.load(htmlString);
-    const hrefs = [];
+    const urls = [];
 
     $("a").each((index, element) => {
         const href = $(element).attr("href");
         if (href) {
-            hrefs.push(href);
+            urls.push(href);
         }
     });
 
-    return hrefs;
+    return normalizeUrls(urls);
 }
 
 export default extractHrefs;
