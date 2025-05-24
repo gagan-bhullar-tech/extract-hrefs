@@ -1,0 +1,30 @@
+{
+  "name": "extract-hrefs",
+  "version": "1.0.0",
+  "description": "This library is used to extract hrefs from a given HTML string.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gagan-bhullar-tech/extract-hrefs.git"
+  },
+  "keywords": [
+    "JavaScript",
+    "Extract",
+    "Href",
+    "Linnks"
+  ],
+  "author": "Gagan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gagan-bhullar-tech/extract-hrefs/issues"
+  },
+  "homepage": "https://github.com/gagan-bhullar-tech/extract-hrefs/issues#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0",
+    "normalize-url": "^8.0.1"
+  }
+}
