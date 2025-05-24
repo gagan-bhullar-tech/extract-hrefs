@@ -1,15 +1,21 @@
-export default class ExtractHrefs {
-    constructor(htmlString) {
-        if (!htmlString || typeof htmlString !== "string") {
-            throw new Error("HTML string is required");
-        }
-        this.htmlString = htmlString;
+import * as cheerio from "cheerio";
+
+const extractHrefs = (htmlString) => {
+    if (!htmlString || typeof htmlString !== "string") {
+        throw new Error("HTML string is required");
     }
 
-    extractHrefs() {
-        // const parser = new DOMParser();
-        // const doc = parser.parseFromString(this.htmlString, "text/html");
-        // const links = doc.querySelectorAll("a[href]");
-        // return Array.from(links).map((link) => link.href);
-    }
+    const $ = cheerio.load(htmlString);
+    const hrefs = [];
+
+    $("a").each((index, element) => {
+        const href = $(element).attr("href");
+        if (href) {
+            hrefs.push(href);
+        }
+    });
+
+    return hrefs;
 }
+
+export default extractHrefs;
