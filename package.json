@@ -1,11 +1,17 @@
 {
   "name": "extract-hrefs",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "This library is used to extract hrefs from a given HTML string.",
-  "main": "index.js",
-  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "build": "tsup",
+    "clean": "rm -rf dist"
   },
   "repository": {
     "type": "git",
@@ -26,5 +32,13 @@
   "dependencies": {
     "cheerio": "^1.0.0",
     "normalize-url": "^8.0.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.3.4",
+    "ts-node": "^10.9.2",
+    "tsup": "^8.5.0",
+    "typescript": "^5.8.3"
   }
 }

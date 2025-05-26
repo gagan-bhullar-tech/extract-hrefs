@@ -1,7 +1,7 @@
 import * as cheerio from "cheerio";
-import normalizeUrl from 'normalize-url';
+import normalizeUrl from "normalize-url";
 
-const normalizeUrls = (links) => {
+const normalizeUrls = (links: string[]) => {
     return links.map(link => {
         try {
             return normalizeUrl(link, { stripWWW: false });
@@ -12,13 +12,13 @@ const normalizeUrls = (links) => {
     });
 };
 
-const extractHrefs = (htmlString) => {
+const extractHrefs = (htmlString: string) => {
     if (!htmlString || typeof htmlString !== "string") {
         throw new Error("HTML string is required");
     }
 
     const $ = cheerio.load(htmlString);
-    const urls = [];
+    const urls: string[] = [];
 
     $("a").each((index, element) => {
         const href = $(element).attr("href");
