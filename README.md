@@ -38,4 +38,4 @@ console.log(links);
 ```
 
 If you like my work, please consider giving it a star on [GitHub](http://github.com/gagan-bhullar-tech/extract-hrefs) or
-Sponsor my work by following [sponsoring me](https://github.com/sponsors/gagan-bhullar-tech/button) link.
+Sponsor my work by following [sponsoring me](https://github.com/sponsors/gagan-bhullar-tech) link.
